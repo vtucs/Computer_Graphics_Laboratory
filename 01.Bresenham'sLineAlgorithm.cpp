@@ -64,7 +64,7 @@ void drawLineLow(int x1, int y1, int x2, int y2)
 	for (int x = x1; x <= x2; x++)
 	{
 		setPixel(x, y);
-		if (P > 0)
+		if (P >= 0)
 		{
 			y = y + iy;
 			P = P - 2 * dx;
@@ -92,7 +92,7 @@ void drawLineHigh(int x1, int y1, int x2, int y2)
 	for (int y = y1; y <= y2; y++)
 	{
 		setPixel(x, y);
-		if (P > 0)
+		if (P >= 0)
 		{
 			x = x + ix;
 			P = P - 2 * dy;
