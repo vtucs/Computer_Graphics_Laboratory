@@ -1,3 +1,7 @@
+/*
+1. Implement Brenham’s line drawing algorithm for all types of slope.
+*/
+
 #include<stdio.h>
 #include<math.h>
 #include<glut.h>

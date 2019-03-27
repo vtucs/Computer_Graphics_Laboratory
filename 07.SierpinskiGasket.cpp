@@ -1,3 +1,8 @@
+/*
+7. Design, develop and implement recursively subdivide a tetrahedron to form 3D
+sierpinski gasket. The number of recursive steps is to be specified by the user.
+*/
+
 #include<stdio.h>
 #include<math.h>
 #include<glut.h>
