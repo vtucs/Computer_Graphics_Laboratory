@@ -1,3 +1,8 @@
+/*
+4. Draw a color cube and allow the user to move the camera suitably to experiment
+with perspective viewing.
+*/
+
 #include<stdio.h>
 #include<math.h>
 #include<glut.h>
@@ -14,7 +19,6 @@ void reshape(int w, int h);
 void mouseFunc(int button, int status, int x, int y);
 void drawPolygon(int a, int b, int c, int d);
 void colorCube();
-
 
 void myinit()
 {
