@@ -18,8 +18,8 @@ struct Point3d
 };
 
 void bino(GLint n, GLint C[]);
-void computeBeziarPoint(GLfloat u, Point3d *beziarPoint, GLint nControlPoints, Point3d controlPoints[], GLint C[]);
-void bezier(Point3d controlPoints[], GLint nControlPoints, GLint nBeziarCurvePoints);
+void computeBezierPoint(GLfloat u, Point3d *bezierPoint, GLint nControlPoints, Point3d controlPoints[], GLint C[]);
+void bezier(Point3d controlPoints[], GLint nControlPoints, GLint nBezierCurvePoints);
 void display();
 void reshape(GLint w, GLint h);
 void menu(int op);
@@ -37,33 +37,33 @@ void bino(GLint n, GLint C[])
 	}
 }
 
-void computeBeziarPoint(GLfloat u, Point3d *beziarPoint, GLint nControlPoints, Point3d controlPoints[], GLint C[])
+void computeBezierPoint(GLfloat u, Point3d *bezierPoint, GLint nControlPoints, Point3d controlPoints[], GLint C[])
 {
 	GLint k, n = nControlPoints - 1;
 	GLfloat bezBlendFcn;
-	beziarPoint->x = beziarPoint->y = beziarPoint->z = 0.0;
+	bezierPoint->x = bezierPoint->y = bezierPoint->z = 0.0;
 	for (k = 0; k < nControlPoints; k++)
 	{
 		bezBlendFcn = C[k] * pow(u, k) * pow(1 - u, n - k);
-		beziarPoint->x += controlPoints[k].x * bezBlendFcn;
-		beziarPoint->y += controlPoints[k].y * bezBlendFcn;
-		beziarPoint->z += controlPoints[k].z * bezBlendFcn;
+		bezierPoint->x += controlPoints[k].x * bezBlendFcn;
+		bezierPoint->y += controlPoints[k].y * bezBlendFcn;
+		bezierPoint->z += controlPoints[k].z * bezBlendFcn;
 	}
 }
 
-void bezier(Point3d controlPoints[], GLint nControlPoints, GLint nBeziarCurvePoints)
+void bezier(Point3d controlPoints[], GLint nControlPoints, GLint nBezierCurvePoints)
 {
-	Point3d beziarCurvePoint;
+	Point3d bezierCurvePoint;
 	GLfloat u;
 	GLint *C, k;
 	C = new GLint[nControlPoints];
 	bino(nControlPoints - 1, C);
 	glBegin(GL_LINE_STRIP);
-	for (k = 0; k <= nBeziarCurvePoints; k++)
+	for (k = 0; k <= nBezierCurvePoints; k++)
 	{
-		u = GLfloat(k) / GLfloat(nBeziarCurvePoints);
-		computeBeziarPoint(u, &beziarCurvePoint, nControlPoints, controlPoints, C);
-		glVertex2f(beziarCurvePoint.x, beziarCurvePoint.y);
+		u = GLfloat(k) / GLfloat(nBezierCurvePoints);
+		computeBezierPoint(u, &bezierCurvePoint, nControlPoints, controlPoints, C);
+		glVertex2f(bezierCurvePoint.x, bezierCurvePoint.y);
 	}
 	glEnd();
 	delete[] C;
