@@ -1,10 +1,10 @@
 /*
-1. Implement Brenham’s line drawing algorithm for all types of slope.
+1. Implement Brenhamâ€™s line drawing algorithm for all types of slope.
 */
 
 #include<stdio.h>
 #include<math.h>
-#include<glut.h>
+#include<GL/glut.h>
 
 int xStart, yStart, xEnd, yEnd;
 
@@ -116,8 +116,8 @@ void display()
 	glFlush();	// Process all OpenGL routines as quickly as possible.
 }
 
-int main()
-{
+int main(int argc, char ** argv) {
+  glutInit( & argc, argv); // Initialize GLUT
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);	// Set display mode.
 	glutInitWindowPosition(100, 100);	// Set top-left display-window position.
 	glutInitWindowSize(500, 500);	// Set display-window width and height.
@@ -125,10 +125,10 @@ int main()
 	myInit();	// Execute initialization procedure.
 
 	printf("Enter co-ordinates of first point: ");
-	scanf_s("%d %d", &xStart, &yStart);
+	scanf("%d %d", &xStart, &yStart);
 
 	printf("Enter co-ordinates of second point: ");
-	scanf_s("%d %d", &xEnd, &yEnd);
+	scanf("%d %d", &xEnd, &yEnd);
 
 	glutDisplayFunc(display);				//Invokes a function to create a picture within the current display window.
 	glutMainLoop();							 //Executes the computer-graphics program.
