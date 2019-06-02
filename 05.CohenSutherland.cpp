@@ -3,7 +3,7 @@
 */
 
 #include <stdio.h>
-#include <glut.h>
+#include<GL/glut.h>
 #define opcode int
 
 float xmin, xmax, umin, umax, ymin, ymax, vmin, vmax;
@@ -140,8 +140,8 @@ void display()
 	glFlush();
 }
 
-int main()
-{
+int main(int argc,char** argv){
+glutInit( &argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
 	glutInitWindowSize(1200, 1200);
 	glutCreateWindow("Clipping");
