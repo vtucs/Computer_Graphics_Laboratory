@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<math.h>
-#include<glut.h>
+#include<GL/glut.h>
 
 int xr, yr;
 float angle;
@@ -37,8 +37,8 @@ void display()
 	drawTriangle();
 }
 
-int main()
-{
+int main(int argc,char** argv){
+	glutInit( &argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
 	glutCreateWindow("Rotate Triangle");
 	gluOrtho2D(0, 150, 0, 150);
