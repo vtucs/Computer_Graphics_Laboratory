@@ -4,8 +4,7 @@
 
 #include<stdio.h>
 #include<math.h>
-#include<glut.h>
-
+#include<GL/glut.h>
 #define PI 3.1416
 
 GLsizei winWidth = 600, winHeight = 600;
@@ -130,8 +129,8 @@ void menu(int op)
 	glutPostRedisplay();
 }
 
-int main()
-{
+int main(int argc,char** argv){
+	glutInit( &argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowPosition(50, 50);
 	glutInitWindowSize(winWidth, winHeight);
