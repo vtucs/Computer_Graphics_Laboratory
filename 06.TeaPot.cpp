@@ -6,7 +6,7 @@ surfaces of the solid object used in the scene.
 
 #include<stdio.h>
 #include<math.h>
-#include<glut.h>
+#include<GL/glut.h>
 
 void myInit();
 void drawTable();
@@ -123,8 +123,8 @@ void display()
 	glFlush();
 }
 
-int main()
-{
+int main(int argc,char** argv){
+glutInit( &argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(100, 100);
