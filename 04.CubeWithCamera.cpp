@@ -5,7 +5,7 @@ with perspective viewing.
 
 #include<stdio.h>
 #include<math.h>
-#include<glut.h>
+#include<GL/glut.h>
 
 float points[][3] = { { -1,1,-1 },{ -1,-1,-1 },{ 1,-1,-1 },{ 1,1,-1 },{ -1,1,1 },{ -1,-1,1 },{ 1,-1,1 },{ 1,1,1 } };
 float colors[][3] = { { 1,0,0 },{ 0,1,0 },{ 0,0,1 },{ 1,1,0 },{ 0,1,1 },{ 1,0,1 },{ 0.5,0.5,0.5 },{ 0.75,0.25,1 } };
@@ -108,8 +108,8 @@ void display()
 	glutSwapBuffers();
 }
 
-int main()
-{
+int main(int argc,char** argv){
+glutInit( &argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(500, 500);
