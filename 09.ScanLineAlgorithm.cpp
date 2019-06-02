@@ -3,8 +3,7 @@
 */
 
 #include<stdio.h>
-#include<glut.h>
-
+#include<GL/glut.h>
 void display();
 void scanfill(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4);
 void edgeDetect(float x1, float y1, float x2, float y2, int *le, int *re);
@@ -100,8 +99,8 @@ void menu(int choice)
 	glutPostRedisplay();
 }
 
-int main()
-{
+int main(int argc,char** argv){
+	glutInit( &argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
 	glutCreateWindow("Title");
 	glMatrixMode(GL_PROJECTION);
