@@ -5,7 +5,7 @@ sierpinski gasket. The number of recursive steps is to be specified by the user.
 
 #include<stdio.h>
 #include<math.h>
-#include<glut.h>
+#include<GL/glut.h>
 
 struct Point
 {
@@ -91,8 +91,8 @@ void display()
 	glFlush();			// Process all OpenGL routines as quickly as possible.
 }
 
-int main()
-{
+int main(int argc,char** argv){
+	glutInit( &argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);// sets buffering and color mode for a display window
 	glutInitWindowPosition(100, 100);	    //Specifies coordinates for the top-left corner of a display window.
 	glutInitWindowSize(500, 500);		    //Specifies width and height for a display window.
