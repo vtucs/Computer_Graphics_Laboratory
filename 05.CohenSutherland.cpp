@@ -3,7 +3,7 @@
 */
 
 #include <stdio.h>
-#include <glut.h>
+#include<GL/glut.h>
 #define opcode int
 
 float xmin, xmax, umin, umax, ymin, ymax, vmin, vmax;
@@ -140,8 +140,8 @@ void display()
 	glFlush();
 }
 
-int main()
-{
+int main(int argc,char** argv){
+glutInit( &argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
 	glutInitWindowSize(1200, 1200);
 	glutCreateWindow("Clipping");
@@ -152,13 +152,13 @@ int main()
 	glMatrixMode(GL_MODELVIEW);
 
 	printf("Enter Clipping Window Diagonal Points: ");
-	scanf_s("%f%f%f%f", &xmin, &ymin, &xmax, &ymax);
+	scanf("%f%f%f%f", &xmin, &ymin, &xmax, &ymax);
 
 	printf("Enter Viewport Diagonal Points: ");
-	scanf_s("%f%f%f%f", &umin, &vmin, &umax, &vmax);
+	scanf("%f%f%f%f", &umin, &vmin, &umax, &vmax);
 
 	printf("Enter Line End Points: ");
-	scanf_s("%f%f%f%f", &prev_x1, &prev_y1, &prev_x2, &prev_y2);
+	scanf("%f%f%f%f", &prev_x1, &prev_y1, &prev_x2, &prev_y2);
 
 	glutDisplayFunc(display);
 	glutMainLoop();
